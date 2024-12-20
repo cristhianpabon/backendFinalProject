@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
+const path = require('path');
 
-const carritoPath = path.join(__dirname, 'data', 'carrito.json');
+const carritoPath = path.join(__dirname, '../data', 'carrito.json');
 
 const getCarritos = async () => {
   try {
@@ -37,7 +38,6 @@ const addProductToCarrito = async (cid, pid) => {
   const carritos = await getCarritos();
   const carrito = carritos.find(c => c.id === cid);
   if (!carrito) return null;
-
   const productIndex = carrito.products.findIndex(p => p.product === pid);
   if (productIndex !== -1) {
     carrito.products[productIndex].quantity += 1;

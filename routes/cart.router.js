@@ -34,6 +34,7 @@ router.post('/:cid/product/:pid', async (req, res) => {
     }
 
     const carrito = await carritoDao.addProductToCarrito(cid, pid);
+
     if (!carrito) {
       return res.status(404).json({ error: 'Carrito no encontrado' });
     }

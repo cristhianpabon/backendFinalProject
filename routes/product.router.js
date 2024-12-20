@@ -28,7 +28,6 @@ router.post("/", async (req, res) => {
   const nuevoProducto = req.body;
   try {
     if (
-      !nuevoProducto.id ||
       !nuevoProducto.title ||
       !nuevoProducto.description ||
       !nuevoProducto.code ||
